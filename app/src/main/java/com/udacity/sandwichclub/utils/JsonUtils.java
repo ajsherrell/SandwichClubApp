@@ -27,15 +27,15 @@ public class JsonUtils {
 
 
     public static Sandwich parseSandwichJson(String json) {
-        // declare local variables for JSON and assign null
+        // declare local variables for JSON
         JSONObject jsonObject;
-        String sandwichMainName = null;
-        String sandwichPlaceOfOrigin = null;
-        String sandwichDescription = null;
-        String sandwichImage = null;
+        String sandwichMainName;
+        String sandwichPlaceOfOrigin;
+        String sandwichDescription;
+        String sandwichImage;
         //arrayLists here:
-        List<String> sandwichAlsoKnownAsArray = new ArrayList<>();
-        List<String> sandwichIngredientsArray = new ArrayList<>();
+        List<String> sandwichAlsoKnownAsArray;
+        List<String> sandwichIngredientsArray;
 
         // parse the JSON with a try/catch block
         try {
@@ -50,7 +50,7 @@ public class JsonUtils {
 
             // get jsonArrayLists
             sandwichAlsoKnownAsArray = jsonArrayList(sandwichName.getJSONArray(SANDWICH_ALSO_KNOWN_AS));
-            sandwichIngredientsArray = jsonArrayList(sandwichName.getJSONArray(SANDWICH_INGREDIENTS));
+            sandwichIngredientsArray = jsonArrayList(jsonObject.getJSONArray(SANDWICH_INGREDIENTS));
 
         } catch (JSONException e) {
             Log.e(TAG, "Not able to parse JSON data", e);
