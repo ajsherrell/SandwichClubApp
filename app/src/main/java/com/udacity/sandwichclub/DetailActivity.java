@@ -25,6 +25,10 @@ public class DetailActivity extends AppCompatActivity {
     private TextView ingredientsTextView;
     private TextView alsoKnowAsTextView;
 
+    // labels
+    private TextView originLabel;
+    private TextView akaLabel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,10 @@ public class DetailActivity extends AppCompatActivity {
         descriptionTextView = findViewById(R.id.description_tv);
         ingredientsTextView = findViewById(R.id.ingredients_tv);
         alsoKnowAsTextView = findViewById(R.id.also_known_tv);
+
+        // find labels
+        originLabel = findViewById(R.id.origin_label);
+        akaLabel = findViewById(R.id.also_known_label);
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -82,12 +90,14 @@ public class DetailActivity extends AppCompatActivity {
             alsoKnowAsTextView.setVisibility(View.INVISIBLE);
         } else {
             alsoKnowAsTextView.setText(listArray(sandwich.getAlsoKnownAs()));
+            akaLabel.setVisibility(View.VISIBLE);
         }
 
         if (sandwich.getPlaceOfOrigin().isEmpty()) {
             originTextView.setVisibility(View.INVISIBLE);
         } else {
             originTextView.setText(sandwich.getPlaceOfOrigin());
+            originLabel.setVisibility(View.VISIBLE);
         }
     }
 
