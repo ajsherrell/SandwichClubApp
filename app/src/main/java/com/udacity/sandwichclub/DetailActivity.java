@@ -106,7 +106,8 @@ public class DetailActivity extends AppCompatActivity {
         StringBuilder stringBuilder = new StringBuilder();
         // iterate through array
         for (int i = 0; i < list.size(); i++) {
-            stringBuilder.append(list.get(i)).append("\n\n\n");
+            // use only one newline or the spacing becomes too much
+            stringBuilder.append(list.get(i)).append("\n");
         }
         return stringBuilder;
     }
